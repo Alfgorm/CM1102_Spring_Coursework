@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sk8 Shack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('page2') }}">Special Offer</a></li>
+            <li><a href="{{ url_for('page3') }}">Shopping Cart</a></li>
+            <li><a href="{{ url_for('page4') }}">Checkout</a></li>
+            
+        </ul>
+    </nav>
+
+    <img src="static/built in/Images for my online Flask shop/NewBanner.jpeg" width="1420" height="300">
+
+    <div class="container">
+        <div class="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+        <div class="video">
+            <iframe width="560" height="500" src="https://www.youtube.com/embed/osy_cOeG29g?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="500" src="https://www.youtube.com/embed/Xj2_cUXgN4A?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+</body>
+</html>

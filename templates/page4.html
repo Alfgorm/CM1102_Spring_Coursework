@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content"width=device-width, initial-scale=1.0">
+  
+    <title>Page 4</title>
+</head>
+<body>
+  {% extends 'base.html' %}
+
+  {% block content %}
+  <h1>Welcome to Page 4</h1>
+  <p>Total Price: ${{ '%.2f' % (total_price or 0.00) }}</p>
+  <h3>Please Enter Payment Details:</h3>
+  <form method="POST" action="{{ url_for('page4') }}">
+    {{ form.hidden_tag() }}
+        <div>
+            {{ form.card_number.label }}<br>
+            {{ form.card_number(size=16) }}<br>
+            {% if form.card_number.errors %}
+                <ul class="errors">
+                    {% for error in form.card_number.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div>
+          {{ form.name.label}}<br>
+          {{ form.name(size=32) }}<br>
+          {% if form.name.errors %}
+                <ul class="errors">
+                    {% for error in form.name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div>
+          {{ form.cvv.label}}<br>
+          {{ form.cvv(size=3) }}<br>
+          {% if form.cvv.errors %}
+                <ul class="errors">
+                    {% for error in form.cvv.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div>
+          {{ form.expiration_date.label}}<br>
+          {{ form.expiration_date(size=5) }}<br>
+          {% if form.expiration_date.errors %}
+                <ul class="errors">
+                    {% for error in form.expiration_date.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+  {% endblock %}
+</body>
+</html>

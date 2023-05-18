@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content"width=device-width, initial-scale=1.0">
+    
+    <title>Page 3</title>
+</head>
+<body>
+  {% extends 'base.html' %}
+
+  {% block content %}
+  <h1>Welcome to The Checkout</h1>
+  <h2>Shopping Cart</h2>
+  <ul>
+    {% for item in cart_items %}
+    <li>{{ item[1] }} - £{{ item[2] }}
+      
+        
+    <form action="/remove_from_cart/{{ item[0] }}" method="POST" style="display:inline;">
+      <button type="submit">Remove</button>
+    </form>
+    </li>
+    {% endfor %}
+  </ul>
+  <p>Total Price: £{{ '%.2f' % (total_price or 0.00) }}</p>
+  {% endblock %}
+</body>
+</html>
